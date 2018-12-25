@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head></head>
-<body></body>
+<body>
 
 </body>
 </html>

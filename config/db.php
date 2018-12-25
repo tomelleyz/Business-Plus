@@ -4,15 +4,16 @@
  */
 CONST HOST = localhost;
 CONST DATABASE_NAME = 'business';
-CONST USER_NAME = 'slpepple01';
-CONST PASSWORD = "1";
+CONST USER_NAME = 'root';
+CONST PASSWORD = 1;
 
 
 
 try {
     $db = new PDO('mysql:host=localhost;dbname=business',USER_NAME,PASSWORD);
-    $db;
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
 }
+?>

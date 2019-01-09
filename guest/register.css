@@ -1,0 +1,13 @@
+.field {
+    position: relative;
+    padding: 20px;
+}
+label {
+    position: absolute;
+    color: grey;
+    font-size: 1.2em;
+}
+.input {
+    border: none;
+    border-bottom: 2px solid grey;
+}

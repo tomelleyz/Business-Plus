@@ -13,65 +13,91 @@
 
     <header>
         <span class="logo"> <span id="business">Business</span><span id="plus">Plus</span> </span>
-        <span class="searchbox" style="display:none"> <input type="search" name="query"/><i class="fas fa-search"></i> </span> <!-- Visible only on large screens -->
-        <span id="menu"><i class="fas fa-bars" style="font-size: 32px; color: grey;"></i></span>
+        <span class="searchbox"> <input type="search" placeholder="Search our website..." name="query"/><i class="fas fa-search" style="padding:0 5px;color:white;background-color:#622670;cursor:pointer;"></i> </span> <!-- Visible only on large screens -->
+        <span id="menuIcon" onclick="openMenu()"><i class="fas fa-bars" style="font-size: 35px;color: #333333;"></i></span>
+    </header>
 
         <!-- News Sections for large screens -->
-        <nav style="display:none" class="news-sections">
-            <a href="#">POLITICS</a>
-            <a href="#">SPORTS</a>
-            <a href="#">ENTERTAINMENT</a>
-            <a href="#">FASHION</a>
-            <a href="#">LIFESTYLE</a>
-            <a href="#">FINANCE</a>
-            <a href="#">TECH</a>
+        <nav class="news-sections">
+            <a href="#">Politics</a>
+            <a href="#">Sports</a>
+            <a href="#">Entertainment</a>
+            <a href="#">Fashion</a>
+            <a href="#">Lifestyle</a>
+            <a href="#">Finance</a>
+            <a href="#">Technology</a>
 
-            <a href="#" id="login">Login</a>
+            <a href="login.inc.php" id="login">Login</a>
         </nav>
         <!-- End of News Sections Nav for large screens -->
-</header>
 
-    <!-- SideNav -->
-    <nav id="sidenav">
+    <!-- SideNav --> 
+    <div id="sidenavContainer">
+    <nav class="sidenav" id="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()"><i class="fas fa-times" style="font-size: 35px"></i></a>
-        <span> <input type="search" name="query"/><i class="fas fa-search"></i> </span>
+        <div class="search-container"> <input type="search" placeholder="Search our website..." name="query"/><span class="search-icon"><i class="fas fa-search"></i></span> </div>
         <hr/>
-        <a href="#">POLITICS</a>
-        <a href="#">SPORTS</a>
-        <a href="#">ENTERTAINMENT</a>
-        <a href="#">FASHION</a>
-        <a href="#">LIFESTYLE</a>
-        <a href="#">FINANCE</a>
-        <a href="#">TECH</a>
+        <a href="#" onclick="closeMenu()">Politics</a>
+        <a href="#" onclick="closeMenu()">Sports</a>
+        <a href="#" onclick="closeMenu()">Entertainment</a>
+        <a href="#" onclick="closeMenu()">Fashion</a>
+        <a href="#" onclick="closeMenu()">Lifestyle</a>
+        <a href="#" onclick="closeMenu()">Finance</a>
+        <a href="#" onclick="closeMenu()">Technology</a>
         <hr/>
         <a href="#" id="login">Login</a>
-        <a href="#" id="login">Sign Up</a>
+        <a href="register.inc.php" id="login">Sign Up</a>
     </nav>
+    </div>
     <!-- End of SideNav -->
 
     <form>
-        <span> <a href="login.inc.php">Login</a> &#47; <a href="register.inc.php">Sign Up</a> </span>
-        <br/><br/>
+        <span> <a href="login.inc.php">Login</a> <span>&#47;</span> <a href="register.inc.php">Sign Up</a> </span>
+        <br/><br/><br/><br/>
         <div class="field">
-        <label for="name" id="name">Your Name</label>
-        <input type="text" name="name" id="theName" class="input" onfocus="nameFocus()" onblur="nameBlur()"/>
+        <label for="name" id="name">Your Name</label> <span class="error"></span>
+        <input type="text" name="name" id="theName" class="input" onfocus="nameFocus()" onblur="nameBlur()"/>    
         </div>
         <br/><br/>
         <div class="field">
-        <label for="email" id="email">Email</label>
+        <label for="email" id="email">Your Email</label> <span class="error"></span>
         <input type="email" name="email" id="theEmail" class="input" onfocus="emailFocus()" onblur="emailBlur()"/>
         </div>
         <br/><br/>
         <div class="field">
-        <label for="password" id="password">Password</label>
+        <label for="password" id="password">Create Password</label> <span class="error"></span>
         <input type="password" name="password" id="thePassword" class="input" onfocus="passwordFocus()" onblur="passwordBlur()"/>
-        <span title="Show password" onclick="show()"><i class="fas fa-eye"></i></span> <span title="Hide password" onclick="hide()"><i class="fas fa-eye-slash"></i></span>
+        <span id="showPassword" title="Show password" onclick="show()"><i class="fas fa-eye" style="font-size: 20px;"></i></span> <span id="hidePassword" title="Hide password" onclick="hide()"><i class="fas fa-eye-slash" style="font-size: 20px;"></i></span>
         </div>
         <br/><br/>
         <input type="submit" value="Sign up"/>
     </form>
 
 <script>
+
+    //
+    // JS code for Sidenav
+    //
+var sidenavContainer = document.getElementById("sidenavContainer");
+function openMenu() {
+    sidenavContainer.style.display = "block";
+    sidenavContainer.style.width = "100%";
+}
+
+function closeMenu() {
+    sidenavContainer.style.display = "none";
+    sidenavContainer.style.width = "0";
+}
+
+// Closes the sidenav container when user clicks anywhere outside of the sidenav
+window.onclick = function(event) {
+    if (event.target == sidenavContainer) {
+        sidenavContainer.style.display = "none";
+    }
+}
+    //
+    // JS code for input fields and labels animation
+    //
 var nameLabel = document.getElementById("name");
 var nameField = document.getElementById("theName");
 var emailLabel = document.getElementById("email");
@@ -83,93 +109,55 @@ function nameFocus() {
     nameLabel.style.color = "#622670";
     nameLabel.style.fontSize = "13px";
     nameLabel.style.fontWeight = "bold";
-    nameField.style.borderBottom = "2px solid #622670";
+    nameField.style.borderBottom = "3px solid #622670";
 }
 function nameBlur() {
     nameLabel.style.color = "grey";
     nameLabel.style.fontSize = "1.2em";
     nameLabel.style.fontWeight = "normal";
-    nameField.style.borderBottom = "2px solid grey";
+    nameField.style.borderBottom = "1px solid grey";
 }
 
 function emailFocus() {
     emailLabel.style.color = "#622670";
     emailLabel.style.fontSize = "13px";
     emailLabel.style.fontWeight = "bold";
-    emailField.style.borderBottom = "2px solid #622670";
+    emailField.style.borderBottom = "3px solid #622670";
 }
 function emailBlur() {
     emailLabel.style.color = "grey";
     emailLabel.style.fontSize = "1.2em";
     emailLabel.style.fontWeight = "normal";
-    emailField.style.borderBottom = "2px solid grey";
+    emailField.style.borderBottom = "1px solid grey";
 }
 
 function passwordFocus() {
     passwordLabel.style.color = "#622670";
     passwordLabel.style.fontSize = "13px";
     passwordLabel.style.fontWeight = "bold";
-    passwordField.style.borderBottom = "2px solid #622670";
+    passwordField.style.borderBottom = "3px solid #622670";
 }
 function passwordBlur() {
     passwordLabel.style.color = "grey";
     passwordLabel.style.fontSize = "1.2em";
     passwordLabel.style.fontWeight = "normal";
-    passwordField.style.borderBottom = "2px solid grey";
+    passwordField.style.borderBottom = "1px solid grey";
 }
 
+// Code for showing and hiding password
 function show() {
     document.getElementById("thePassword").setAttribute("type", "text");
+    document.getElementById("showPassword").style.display = "none";
+    document.getElementById("hidePassword").style.display = "block";
 }
 function hide() {
     document.getElementById("thePassword").setAttribute("type", "password");
+    document.getElementById("hidePassword").style.display = "none";
+    document.getElementById("showPassword").style.display = "block";
 }
-/*$(document).ready(function(){
-    $("#theName").focus(function(){
-        $("#name").animate({
-            color: '#622670',
-            fontSize: '13px'
-        });
-        $(this).animate({borderBottom: '2px solid #622670'});
-    });
-    $("#theName").blur(function(){
-        $("#name").animate({
-            color: 'grey',
-            fontSize: '1.2em'
-        });
-        $(this).animate({borderBottom: '2px solid grey'});
-    });
-
-    $("#theEmail").focus(function(){
-        $("#email").animate({
-            color: '#622670',
-            fontSize: '13px'
-        });
-        $(this).animate({borderBottom: '2px solid #622670'});
-    });
-    $("#theEmail").blur(function(){
-        $("#email").animate({
-            color: 'grey',
-            fontSize: '1.2em'
-        });
-        $(this).animate({borderBottom: '2px solid grey'});
-    });
-
-    $("#thePassword").focus(function(){
-        $("#password").animate({
-            color: '#622670',
-            fontSize: '13px'
-        });
-        $(this).animate({borderBottom: '2px solid #622670'});
-    });
-    $("#thePassword").blur(function(){
-        $("#password").animate({
-            color: 'grey',
-            fontSize: '1.2em'
-        });
-        $(this).animate({borderBottom: '2px solid grey'});
-    });
-});*/
+    // 
+    // End of JS code for input fields and labels animation
+    //
 </script>
 </body>
 </html>

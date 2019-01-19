@@ -27,7 +27,7 @@
             <a href="#">Finance</a>
             <a href="#">Technology</a>
 
-            <a href="login.inc.php" id="login">Login</a>
+            <a href="login.inc.php">Login</a>
         </nav>
         <!-- End of News Sections Nav for large screens -->
 
@@ -45,8 +45,8 @@
         <a href="#" onclick="closeMenu()">Finance</a>
         <a href="#" onclick="closeMenu()">Technology</a>
         <hr/>
-        <a href="#" id="login">Login</a>
-        <a href="register.inc.php" id="login">Sign Up</a>
+        <a href="login.inc.php">Login</a>
+        <a href="register.inc.php">Sign Up</a>
     </nav>
     </div>
     <!-- End of SideNav -->
@@ -55,19 +55,22 @@
         <span> <a href="login.inc.php">Login</a> <span>&#47;</span> <a href="register.inc.php">Sign Up</a> </span>
         <br/><br/><br/><br/>
         <div class="field">
-        <label for="name" id="name">Your Name</label> <span class="error"></span>
-        <input type="text" name="name" id="theName" class="input" onfocus="nameFocus()" onblur="nameBlur()"/>    
+        <label for="name" id="name">Your Name</label>
+        <input type="text" name="name" id="theName" class="input" onfocus="nameFocus()" onblur="nameBlur()"/>  
+        <span class="error"></span>  
         </div>
         <br/><br/>
         <div class="field">
-        <label for="email" id="email">Your Email</label> <span class="error"></span>
+        <label for="email" id="email">Your Email</label>
         <input type="email" name="email" id="theEmail" class="input" onfocus="emailFocus()" onblur="emailBlur()"/>
+        <span class="error"></span>
         </div>
         <br/><br/>
         <div class="field">
-        <label for="password" id="password">Create Password</label> <span class="error"></span>
+        <label for="password" id="password">Create Password</label>
         <input type="password" name="password" id="thePassword" class="input" onfocus="passwordFocus()" onblur="passwordBlur()"/>
         <span id="showPassword" title="Show password" onclick="show()"><i class="fas fa-eye" style="font-size: 20px;"></i></span> <span id="hidePassword" title="Hide password" onclick="hide()"><i class="fas fa-eye-slash" style="font-size: 20px;"></i></span>
+        <span class="error"></span>    
         </div>
         <br/><br/>
         <input type="submit" value="Sign up"/>

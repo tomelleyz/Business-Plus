@@ -1,0 +1,255 @@
+/*
+
+        Mobile first design
+        
+*/
+* {box-sizing: border-box;}
+body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+header, nav {display: block;} /* teaches older browsers how to handle HTML5 */
+header {
+    padding: 15px 25px;
+}
+.logo {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+#business {color: #622670;}
+#plus {color: #f05a0f;}
+header .searchbox, .news-sections {display: none;}
+#menuIcon {
+    float: right;
+    cursor: pointer;
+}
+#sidenavContainer {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: none;
+    overflow: auto;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation: animatesidenav 1s ease-out;
+    -moz-animation: animatesidenav 1s ease-out;
+    -o-animation: animatesidenav 1s ease-out;
+    animation: animatesidenav 1s ease-out; /* standard syntax */
+}
+.sidenav {
+    background-color: #333333;
+    height: 100%;
+    width: 65%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    overflow: auto;
+    padding-top: 25px;
+    box-shadow: -2px 0 3px rgba(0, 0, 0, 0.4);
+}
+@-webkit-keyframes animatesidenav {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+@-moz-keyframes animatesidenav {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+@-o-keyframes animatesidenav {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+@keyframes animatesidenav {
+    from {opacity: 0.8;}
+    to {opacity: 1;}
+}
+.sidenav a {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+    padding: 7px 25px;
+}
+.sidenav a:hover {
+    color: silver;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; /* standard syntax */
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.sidenav .search-container {
+    position: relative;
+    margin: 40px 0 15px 0;
+    text-align: center;
+}
+.sidenav input {
+    font-family: "Lato", sans-serif;
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.search-icon {
+    cursor: pointer;
+    font-size: 22px;
+    color: white;
+    margin: 0 0 0 8px;
+}
+.sidenav hr {
+    margin: 5px 25px;
+}
+form span:first-child {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+form span a[href="login.inc.php"], form span a[href="register.inc.php"] {
+    text-decoration: none;
+}
+form span a[href="login.inc.php"] {
+    color: #622670;
+}
+form span a[href="register.inc.php"] {
+    color: silver;
+}
+form span > span { /* the forward slash between login and signup*/
+    color: silver;
+}
+span[title="Show password"], span[title="Hide password"] {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    cursor: pointer;
+}
+span[title="Hide password"] {
+    display: none;
+}
+form {
+    padding: 30px;
+    margin-top: 30px;
+}
+.field {
+    position: relative;
+    margin-bottom: 15px;
+}
+label {
+    position: absolute;
+    color: grey;
+    font-size: 1.2em;
+    top: -10px;
+    transition: .4s;
+}
+.input {
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 13px 0 5px 0;
+    font-size: 1.1em;
+    outline: none;
+    transition: .3s;
+    width: 100%;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+}
+input[value="Log in"] {
+    margin-top: 40px;
+    font-family: "Lato", sans-serif;
+    background-color: #f05a0f;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #f05a0f;
+    outline: none;
+    padding: 10px 35px;
+    font-size: 1.3em;
+    font-weight: bold;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; /* standard syntax */
+}
+input[value="Log in"]:hover {
+    background-color: white;
+    color: #f05a0f;
+    border: 1px solid #f05a0f;
+}
+
+/* Styling for screens wider than 768px */
+@media screen and (min-width: 768px) {
+    #menuIcon {display: none;}
+    header .searchbox {
+        display: inline-block;
+        float: right;
+        background-color: #622670;
+        border-radius: 5px;
+    }
+    header .searchbox input[type="search"] {
+        border: 2px solid #622670;
+        border-radius: 5px 0 0 5px;
+        padding: 3px;
+        font-family: "Lato", sans-serif;
+    }
+    .news-sections {
+        display: block;
+        text-align: center;
+        background-color: #333333;
+        padding: 15px;
+    }
+    .news-sections a {
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+    }
+    .news-sections a:hover {
+        background-color: grey;
+        color: white;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s; /* standard syntax */
+    }
+    .news-sections a[href="register.inc.php"] {
+        float: right;
+        background-color: #f05a0f;
+        padding: 5px 40px;
+        margin: -5px 10px 0 0;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s; /* standard syntax */
+    }
+    .news-sections a[href="register.inc.php"]:hover {
+        background-color: white;
+        color: #f05a0f;
+    }
+    form {
+        width: 50%;
+        margin: 40px auto auto auto;
+        -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+        -o-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5); /* standard syntax */
+    }
+
+}
+
+/* Styling for News sections nav of screens of width between 768px and 850px */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .news-sections a {
+        padding: 10px;
+    }
+    .news-sections a[href="register.inc.php"] {
+        padding: 5px 25px;
+    }
+}
